@@ -1,77 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The Archive</title>
-
-<style>
-body{
-    background:#0b0b0b;
-    color:#d6d6d6;
-    font-family: monospace;
-    max-width:700px;
-    margin:auto;
-}
-
-h1{
-    text-align:center;
-    color:#7df9ff;
-}
-
-.entry{
-    border:1px solid #333;
-    padding:10px;
-    margin:10px 0;
-    cursor:pointer;
-}
-
-.entry:hover{
-    background:#111;
-}
-
-.hidden{
-    display:none;
-    margin-top:8px;
-}
-</style>
-
+  <title>Bercyria Archive</title>
+  <style>
+    body{
+      background:black;
+      color:#00ff00;
+      font-family: monospace;
+      padding:20px;
+    }
+    #login, #content{
+      max-width:700px;
+      margin:auto;
+    }
+    #inputPass{
+      background:black;
+      color:#00ff00;
+      border:none;
+      border-bottom:1px solid #00ff00;
+      font-family: monospace;
+      font-size:16px;
+      padding:5px;
+      width:200px;
+    }
+    .entry{
+      border:1px solid #00ff00;
+      padding:10px;
+      margin:10px 0;
+      cursor:pointer;
+    }
+    .entry:hover{
+      background:#002200;
+    }
+    .hidden{
+      display:none;
+      margin-top:8px;
+    }
+    .terminal{
+      color:#00ff00;
+      background:black;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>ARCHIVE NODE</h1>
-
-<div class="entry" onclick="toggle('e1')">
-Entry 001 — Opening Log
-<div id="e1" class="hidden">
-The archive has been initialized.  
-Memory fragments are now being catalogued.
-</div>
+<div id="login">
+  <p class="terminal">Bercyria Archive v1.0</p>
+  <p class="terminal">ENTER ACCESS KEY:</p>
+  <input type="password" id="inputPass" placeholder="Password">
+  <button onclick="checkPass()">Enter</button>
 </div>
 
-<div class="entry" onclick="toggle('e2')">
-Entry 002 — Fragment
-<div id="e2" class="hidden">
-“Bird fights its way out of the egg…”  
-Fragments referencing Abraxas detected.
-</div>
-</div>
+<div id="content" class="hidden">
+  <p class="terminal">ACCESS GRANTED. WELCOME TO THE ARCHIVE.</p>
 
-<div class="entry" onclick="toggle('e3')">
-Entry 003 — Signal
-<div id="e3" class="hidden">
-Signal detected.  
-Origin unknown.
-</div>
+  <div class="entry" onclick="toggle('e1')">
+    Entry 001 — Opening Log
+    <div id="e1" class="hidden">
+      <!-- EDIT THIS TEXT -->
+      Welcome to the archive. The first log documents initialization of the archive.
+    </div>
+  </div>
+
+  <div class="entry" onclick="toggle('e2')">
+    Entry 002 — Fragment
+    <div id="e2" class="hidden">
+      <!-- EDIT THIS TEXT -->
+      “Bird fights its way out of the egg…” Fragment referencing Abraxas detected.
+    </div>
+  </div>
+
+  <div class="entry" onclick="toggle('e3')">
+    Entry 003 — Signal
+    <div id="e3" class="hidden">
+      <!-- EDIT THIS TEXT -->
+      Signal detected. Origin unknown. Archive nodes remain active.
+    </div>
+  </div>
+
 </div>
 
 <script>
-function toggle(id){
-  let element = document.getElementById(id);
+function checkPass(){
+  var password = "2304"; // your password
 
-  if(element.style.display === "block"){
-      element.style.display = "none";
+  if(document.getElementById("inputPass").value === password){
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").classList.remove("hidden");
   } else {
-      element.style.display = "block";
+    alert("Incorrect password");
+  }
+}
+
+function toggle(id){
+  var element = document.getElementById(id);
+  if(element.style.display === "block"){
+    element.style.display = "none";
+  } else {
+    element.style.display = "block";
   }
 }
 </script>
