@@ -3,11 +3,13 @@
 <head>
   <title>Krista's archive</title>
   <style>
-    body{
-      background-image: url('image.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+    body{ background-image: url('image.jpg');
+         background-size: cover;
+       background-repeat: no-repeat;
+ animation: moveBg 30s infinite alternate ease-in-out;
+@keyframes moveBg{
+  0% { background-position: center; }
+  100% { background-position: right; }
       color:#c574ed;
       font-family: monospace;
       padding:20px;
