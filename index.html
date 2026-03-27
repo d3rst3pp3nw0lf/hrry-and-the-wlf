@@ -77,6 +77,14 @@
       border:none;
       background:#5b1286;
     }
+    .entry div {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;  
+  user-select: none;     
+}
   </style>
 </head>
 
@@ -169,10 +177,16 @@ function checkPass() {
 
 function toggle(id){
   var element = document.getElementById(id);
-  if(element.style.maxHeight){
-    element.style.maxHeight = null;
+  if(element.style.maxHeight && element.style.maxHeight !== "0px"){
+    element.style.maxHeight = "0";
+    element.style.opacity = 0;
+    element.style.pointerEvents = "none";  // disable interactions
+    element.style.userSelect = "none";
   } else {
     element.style.maxHeight = element.scrollHeight + "px";
+    element.style.opacity = 1;
+    element.style.pointerEvents = "auto";  // enable interactions
+    element.style.userSelect = "text";
   }
 }
 </script>
