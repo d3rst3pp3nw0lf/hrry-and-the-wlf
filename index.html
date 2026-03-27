@@ -55,6 +55,7 @@
       border:none;
       background: transparent;
       transition:0.3s;
+      cursor: pointer;
     }
     .Mybutton:hover {
       border:none;
@@ -68,8 +69,7 @@
 <div id="login">
   <p class="terminal"> Archive v1.0</p>
   
-  <p>
-   <class="terminal" style="text-align: center;">ENTER ACCESS KEY:</p>
+  <p class="terminal" style="text-align: center;">ENTER ACCESS KEY:</p>
     
     <p> <input type="password" id="inputPass" placeholder="Password"></p>
   <button onclick="checkPass()"style="background-color: #6b3885; font-size: 10px;"
@@ -81,7 +81,7 @@
   <p class="terminal">ACCESS GRANTED. WELCOME TO THE ARCHIVE.</p>
   <a href="https://www.youtube.com/watch?v=siCXPkX1AaI&list=RDsiCXPkX1AaI&start_radio=1">
   <button 
-    onclick="toggle()" class="Mybutton"> 
+   class="Mybutton"> 
     Go fuck yourself    
     </button>
     </a>
@@ -114,8 +114,14 @@
 </div>
 
 <script>
+  
+  document.getElementById("inputPass").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    checkPass();
+  }
+});
 function checkPass(){
-  var password = "2304"; // your password
+  var password = "2304"; 
 
   if(document.getElementById("inputPass").value === password){
     document.getElementById("login").style.display = "none";
