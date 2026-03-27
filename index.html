@@ -3,15 +3,15 @@
 <head>
   <title>Krista's archive</title>
   <style>
-    body{ 
+    body{
       background-image: url('image.jpg');
-         background-size: cover;
-         background-repeat: no-repeat;
-         animation: moveBg 30s infinite alternate ease-in-out;
-         color:#c574ed;
-         font-family: monospace;
-         padding:20px;
-        }
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color:#c574ed;
+      font-family: monospace;
+      padding:20px;
+    }
     ::selection {
       background: #6b3885;
       color: #000;
@@ -43,6 +43,7 @@
     }
     .hidden{
       display:none;
+      margin-top:8px;
     }
     .terminal{
       color:#c574ed;
@@ -54,17 +55,22 @@
 <body>
 
 <div id="login">
-  <p class="terminal"style="text-align: center;"> Archive v1.0</p>
-  <p style="text-align: center;">ENTER ACCESS KEY:</p>
-   <p> <input type="password" id="inputPass" placeholder="Password"></p>
-  <button onclick="checkPass()"style="background-color: #6b3885; font-size: 10px;">Enter </button>
+  <p class="terminal"> Archive v1.0</p>
+  
+  <p>
+   <class="terminal" style="text-align: center;">ENTER ACCESS KEY:</p>
+    
+    <p> <input type="password" id="inputPass" placeholder="Password"></p>
+  <button onclick="checkPass()"style="background-color: #6b3885; font-size: 10px;"
+  >Enter
+  </button>
 </div>
 
 <div id="content" class="hidden">
   <p class="terminal">ACCESS GRANTED. WELCOME TO THE ARCHIVE.</p>
   <a href="https://www.youtube.com/watch?v=siCXPkX1AaI&list=RDsiCXPkX1AaI&start_radio=1">
   <button 
-    style="font-size: 15px; background-color: #6b3885;">click me
+    style="font-size: 23px; background-color: #6b3885;">click me
 
     
     </button>
