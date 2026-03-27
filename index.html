@@ -50,6 +50,15 @@
       color:#c574ed;
       background:black;
     }
+    .Mybutton {
+      font-size: 15px;
+      border:none;
+      backround: transparent;
+      transition:0.3s;
+    }
+    .Mybutton:hover {
+      border:none;
+      backround-colour:#5b1286;
   </style>
 </head>
 
@@ -71,12 +80,11 @@
   <p class="terminal">ACCESS GRANTED. WELCOME TO THE ARCHIVE.</p>
   <a href="https://www.youtube.com/watch?v=siCXPkX1AaI&list=RDsiCXPkX1AaI&start_radio=1">
   <button 
-    style="font-size: 15px; 
-    border:none; 
-    background-color: #5b1286;">Go fuck yourself
-    
+    onclick="toggle()" class="Mybutton"> 
+    Go fuck yourself    
     </button>
     </a>
+  </div
   <div class="entry" onclick="toggle('e1')">
     Entry 001 — Opening Log
     <div id="e1" class="hidden">
