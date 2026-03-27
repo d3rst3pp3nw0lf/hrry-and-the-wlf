@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <span class="cursor">█</span>
 <head>
   <title>Krista's archive</title>
   <style>
@@ -8,8 +9,8 @@
        background-repeat: no-repeat;
  animation: moveBg 30s infinite alternate ease-in-out;
 @keyframes moveBg{
-  0% { background-position: center; }
-  100% { background-position: right; }
+  0% { background-position: center; 
+  100% { background-position: right; 
       color:#c574ed;
       font-family: monospace;
       padding:20px;
@@ -57,11 +58,11 @@
 <body>
 
 <div id="login">
-  <p class="terminal"> Archive v1.0</p>
+  <p class="terminal"style="text-align: center;"> Archive v1.0</p>
   <p style="text-align: center;">ENTER ACCESS KEY:</p>
   <p>
     
-    <p> <input type="password" id="inputPass" placeholder="Password"></p>
+    <p> <input type="password" id="inputPass" style="text-align: center;"placeholder="Password"></p>
   <button onclick="checkPass()"style="background-color: #6b3885; font-size: 10px;"
   >Enter
   </button>
