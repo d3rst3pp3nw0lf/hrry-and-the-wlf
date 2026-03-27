@@ -38,6 +38,11 @@
       margin:10px 0;
       cursor:pointer;
     }
+    .entry div {
+     max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease; /* only new stuff */
+    }  
     .entry:hover{
       border:none;
       background:#5b1286;
@@ -50,6 +55,17 @@
       color:#c574ed;
       background:black;
     }
+    .terminal:hover {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 #c574ed, -2px 0 #ff00ff; }
+  25% { text-shadow: -2px 0 #00ffff, 2px 0 #c574ed; }
+  50% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; }
+  75% { text-shadow: -2px 0 #c574ed, 2px 0 #ff00ff; }
+  100% { text-shadow: 2px 0 #c574ed, -2px 0 #ff00ff; }
+}
     .Mybutton {
       font-size: 15px;
       border:none;
@@ -67,6 +83,9 @@
 <body>
 
 <div id="login">
+  <div id="decrypt" class="hidden terminal" style="text-align:center; margin-top:20px;">
+  Decrypting...
+</div>
   <p class="terminal"> Archive v1.0</p>
   
   <p class="terminal" style="text-align: center;">ENTER ACCESS KEY:</p>
@@ -120,12 +139,29 @@
     checkPass();
   }
 });
-function checkPass(){
+function checkPass() {
   var password = "2304"; 
+  var input = document.getElementById("inputPass");
+  var login = document.getElementById("login");
+  var content = document.getElementById("content");
+  var decrypt = document.getElementById("decrypt");
 
-  if(document.getElementById("inputPass").value === password){
-    document.getElementById("login").style.display = "none";
-    document.getElementById("content").classList.remove("hidden");
+  if(input.value === password){
+    // show decrypt animation first
+    decrypt.classList.remove("hidden");
+
+    let dots = 0;
+    const interval = setInterval(() => {
+      decrypt.textContent = "Decrypting" + ".".repeat(dots % 4);
+      dots++;
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      login.style.display = "none";
+      decrypt.classList.add("hidden");
+      content.classList.remove("hidden");
+    }, 3000); // 3 seconds animation
   } else {
     alert("Incorrect password");
   }
@@ -133,10 +169,10 @@ function checkPass(){
 
 function toggle(id){
   var element = document.getElementById(id);
-  if(element.style.display === "block"){
-    element.style.display = "none";
+  if(element.style.maxHeight){
+    element.style.maxHeight = null;
   } else {
-    element.style.display = "block";
+    element.style.maxHeight = element.scrollHeight + "px";
   }
 }
 </script>
