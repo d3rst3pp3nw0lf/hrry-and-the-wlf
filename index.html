@@ -40,6 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size:16px;
       padding:5px;
       width:200px;
+      text-align:center;
     }
       #inputPass:focus{
         outline: none;
@@ -81,6 +82,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   75% { text-shadow: -2px 0 #c574ed, 2px 0 #ff00ff; }
   100% { text-shadow: 2px 0 #c574ed, -2px 0 #ff00ff; }
 }
+    .enterBtn {
+  background: transparent;
+  color: #c574ed;
+  border: 1px solid #c574ed;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.enterBtn:hover {
+  background: #c574ed;
+  color: black;
+  box-shadow: 0 0 8px #c574ed;
+}
+
+.enterBtn:active {
+  transform: scale(0.95);
+}
     .Mybutton {
       font-size: 15px;
       border:none;
@@ -117,8 +139,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="terminal" >ENTER ACCESS KEY:</p>
     
     <p> <input type="password" id="inputPass" placeholder="Password"></p>
-  <button onclick="checkPass()"style="background-color: #6b3885; font-size: 10px;"
-  >Enter
+  <button onclick="checkPass()" class="enterBtn">
+  >EXECUTE
   </button>
 </div>
 
